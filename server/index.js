@@ -30,6 +30,15 @@ app.use("/api/events", eventRoutes);
 app.use("/api/guidelines", communityGuidelineRoutes);
 app.use("/api/contact", contactRoutes);
 
+
+app.get("/", (req, res) => {
+  res.json({
+    status: "OK",
+    message: "ReportIT backend is live"
+  });
+});
+
+
 // SERVER
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
