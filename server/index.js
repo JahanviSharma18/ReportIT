@@ -21,7 +21,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "https://report-it-psi.vercel.app",
+    origin: "https://reportit-ten.vercel.app",
     credentials: true
   })
 );
