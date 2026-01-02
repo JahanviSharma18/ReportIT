@@ -18,12 +18,16 @@ const app = express(); // ✅ MUST come BEFORE app.use()
 connectDB();
 
 // MIDDLEWARE
+
 app.use(
   cors({
-    origin: "https://YOUR-FRONTEND.vercel.app",
+    origin: "https://report-it-psi.vercel.app",
     credentials: true
   })
-);app.use(express.json());
+);
+
+app.use(express.json());
+
 
 // ROUTES
 app.use("/api/auth", authRoutes);
