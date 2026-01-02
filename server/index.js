@@ -18,8 +18,16 @@ const app = express(); // ✅ MUST come BEFORE app.use()
 connectDB();
 
 // MIDDLEWARE
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://report-it-psi.vercel.app",
+    credentials: true
+  })
+);
+
 app.use(express.json());
+
 
 // ROUTES
 app.use("/api/auth", authRoutes);
@@ -29,6 +37,15 @@ app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/guidelines", communityGuidelineRoutes);
 app.use("/api/contact", contactRoutes);
+
+
+app.get("/", (req, res) => {
+  res.json({
+    status: "OK",
+    message: "ReportIT backend is live"
+  });
+});
+
 
 // SERVER
 const PORT = process.env.PORT || 5000;
