@@ -18,7 +18,7 @@ function ReportIncident() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("${import.meta.env.VITE_API_URL}/api/incidents", formData);
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/incidents`, formData);
     navigate("/");
   };
 

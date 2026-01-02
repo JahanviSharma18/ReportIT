@@ -31,7 +31,7 @@ const [events, setEvents] = useState([]);
 const createEvent = async () => {
   try {
     await axios.post(
-      "${import.meta.env.VITE_API_URL}/api/events",
+      `${import.meta.env.VITE_API_URL}/api/events`,
       {
         title: eventData.title,
         category: eventData.category,
@@ -67,7 +67,7 @@ const createEvent = async () => {
 const fetchGuidelines = async () => {
   try {
     const res = await axios.get(
-      "${import.meta.env.VITE_API_URL}/api/guidelines/public",
+      `${import.meta.env.VITE_API_URL}/api/guidelines/public`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setGuidelinesList(res.data);
@@ -86,7 +86,7 @@ const resetUserPassword = async (requestId, phone) => {
   }
 
   await axios.post(
-    "${import.meta.env.VITE_API_URL}/api/admin/reset-password",
+    `${import.meta.env.VITE_API_URL}/api/admin/reset-password`,
     {
       requestId,
       phone,
@@ -104,7 +104,7 @@ const resetUserPassword = async (requestId, phone) => {
 
 const fetchResetRequests = async () => {
   const res = await axios.get(
-    "${import.meta.env.VITE_API_URL}/api/admin/password-reset-requests",
+    `${import.meta.env.VITE_API_URL}/api/admin/password-reset-requests`,
     {
       headers: { Authorization: `Bearer ${token}` }
     }
@@ -132,7 +132,7 @@ const postGuideline = async () => {
     );
 
     await axios.post(
-      "${import.meta.env.VITE_API_URL}/api/guidelines",
+      `${import.meta.env.VITE_API_URL}/api/guidelines`,
       {
         title: guideline.title,
         venue: guideline.venue,
@@ -200,7 +200,7 @@ const [eventData, setEventData] = useState({
   const fetchIncidents = async () => {
     try {
       const res = await axios.get(
-        "${import.meta.env.VITE_API_URL}/api/incidents",
+        `${import.meta.env.VITE_API_URL}/api/incidents`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -239,7 +239,7 @@ const [eventData, setEventData] = useState({
 
 const fetchEvents = async () => {
   const res = await axios.get(
-    "${import.meta.env.VITE_API_URL}/api/events",
+    `${import.meta.env.VITE_API_URL}/api/events`,
     { headers: { Authorization: `Bearer ${token}` } }
   );
   setEvents(res.data);
@@ -248,7 +248,7 @@ const fetchEvents = async () => {
 const fetchMessages = async () => {
   try {
     const res = await axios.get(
-      "${import.meta.env.VITE_API_URL}/api/contact",
+      `${import.meta.env.VITE_API_URL}/api/contact`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }

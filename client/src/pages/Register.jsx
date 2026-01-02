@@ -88,7 +88,7 @@ if (cleanedPhone.length !== 10) {
 
   try {
     await axios.post(
-      "${import.meta.env.VITE_API_URL}/api/auth/register",
+      `${import.meta.env.VITE_API_URL}/api/auth/register`,
       formData
     );
 
