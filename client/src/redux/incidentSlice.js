@@ -4,7 +4,7 @@ import axios from "axios";
 export const fetchIncidents = createAsyncThunk(
   "incidents/fetchIncidents",
   async () => {
-    const res = await axios.get("http://localhost:5000/api/incidents");
+    const res = await axios.get("${import.meta.env.VITE_API_URL}/api/incidents");
     return res.data;
   }
 );

@@ -8,7 +8,7 @@ function Members() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/users/public")
+      .get("${import.meta.env.VITE_API_URL}/api/users/public")
       .then((res) => setMembers(res.data))
       .catch(() => setMembers([]))
       .finally(() => setLoading(false));

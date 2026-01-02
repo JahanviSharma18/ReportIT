@@ -25,7 +25,7 @@ function UserDashboard() {
   const fetchMyIncidents = async () => {
     try {
       const res = await 
-      axios.get("http://localhost:5000/api/incidents/my", {
+      axios.get("${import.meta.env.VITE_API_URL}/api/incidents/my", {
   headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`
   }
@@ -51,7 +51,7 @@ function UserDashboard() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/incidents",
+        "${import.meta.env.VITE_API_URL}/api/incidents",
         formData,
         {
           headers: {

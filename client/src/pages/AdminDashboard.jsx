@@ -31,7 +31,7 @@ const [events, setEvents] = useState([]);
 const createEvent = async () => {
   try {
     await axios.post(
-      "http://localhost:5000/api/events",
+      "${import.meta.env.VITE_API_URL}/api/events",
       {
         title: eventData.title,
         category: eventData.category,
@@ -67,7 +67,7 @@ const createEvent = async () => {
 const fetchGuidelines = async () => {
   try {
     const res = await axios.get(
-      "http://localhost:5000/api/guidelines/public",
+      "${import.meta.env.VITE_API_URL}/api/guidelines/public",
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setGuidelinesList(res.data);
@@ -86,7 +86,7 @@ const resetUserPassword = async (requestId, phone) => {
   }
 
   await axios.post(
-    "http://localhost:5000/api/admin/reset-password",
+    "${import.meta.env.VITE_API_URL}/api/admin/reset-password",
     {
       requestId,
       phone,
@@ -104,7 +104,7 @@ const resetUserPassword = async (requestId, phone) => {
 
 const fetchResetRequests = async () => {
   const res = await axios.get(
-    "http://localhost:5000/api/admin/password-reset-requests",
+    "${import.meta.env.VITE_API_URL}/api/admin/password-reset-requests",
     {
       headers: { Authorization: `Bearer ${token}` }
     }
@@ -115,7 +115,7 @@ const fetchResetRequests = async () => {
 
 const deleteEvent = async (id) => {
   await axios.delete(
-    `http://localhost:5000/api/events/${id}`,
+    `${import.meta.env.VITE_API_URL}/api/events/${id}`,
     { headers: { Authorization: `Bearer ${token}` } }
   );
   fetchEvents();
@@ -132,7 +132,7 @@ const postGuideline = async () => {
     );
 
     await axios.post(
-      "http://localhost:5000/api/guidelines",
+      "${import.meta.env.VITE_API_URL}/api/guidelines",
       {
         title: guideline.title,
         venue: guideline.venue,
@@ -165,7 +165,7 @@ const deleteGuideline = async (id) => {
 
   try {
     await axios.delete(
-      `http://localhost:5000/api/guidelines/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/guidelines/${id}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
@@ -200,7 +200,7 @@ const [eventData, setEventData] = useState({
   const fetchIncidents = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/incidents",
+        "${import.meta.env.VITE_API_URL}/api/incidents",
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -213,7 +213,7 @@ const [eventData, setEventData] = useState({
 
  const updateIncident = async (id, status) => {
   await axios.put(
-    `http://localhost:5000/api/incidents/${id}`,
+    `${import.meta.env.VITE_API_URL}/api/incidents/${id}`,
     {
       status,
       remarks: remarksMap[id] || ""
@@ -229,7 +229,7 @@ const [eventData, setEventData] = useState({
 
   const deleteIncident = async (id) => {
     await axios.delete(
-      `http://localhost:5000/api/incidents/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/incidents/${id}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -239,7 +239,7 @@ const [eventData, setEventData] = useState({
 
 const fetchEvents = async () => {
   const res = await axios.get(
-    "http://localhost:5000/api/events",
+    "${import.meta.env.VITE_API_URL}/api/events",
     { headers: { Authorization: `Bearer ${token}` } }
   );
   setEvents(res.data);
@@ -248,7 +248,7 @@ const fetchEvents = async () => {
 const fetchMessages = async () => {
   try {
     const res = await axios.get(
-      "http://localhost:5000/api/contact",
+      "${import.meta.env.VITE_API_URL}/api/contact",
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -261,7 +261,7 @@ const fetchMessages = async () => {
 
 const deleteMessage = async (id) => {
   await axios.delete(
-    `http://localhost:5000/api/contact/${id}`,
+    `${import.meta.env.VITE_API_URL}/api/contact/${id}`,
     {
       headers: { Authorization: `Bearer ${token}` }
     }

@@ -35,7 +35,7 @@ const [selectedDate, setSelectedDate] = useState(null);
 const fetchMembers = async () => {
   try {
     const res = await axios.get(
-      "http://localhost:5000/api/users/public"
+      "${import.meta.env.VITE_API_URL}/api/users/public"
     );
     setMembers(res.data);
     setShowMembers(true);
@@ -48,7 +48,7 @@ const fetchMembers = async () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/guidelines/public")
+      .get("${import.meta.env.VITE_API_URL}/api/guidelines/public")
     .then((res) => setGuidelines(res.data))
     .catch(() => console.error("Failed to load guidelines"))
     .finally(() => setLoadingGuidelines(false));
@@ -71,7 +71,7 @@ const fetchMembers = async () => {
 
   useEffect(() => {
   axios
-    .get("http://localhost:5000/api/events/public")
+    .get("${import.meta.env.VITE_API_URL}/api/events/public")
     .then((res) => setCalendarEvents(res.data))
     .catch(() => setCalendarEvents([]));
 }, []);
